@@ -180,6 +180,6 @@ input:focus-within{
     transform: none;
   }
   input::placeholder{
-    font-size: 10px;
+    font-size: 12px;
   }
 }
