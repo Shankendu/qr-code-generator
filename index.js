@@ -27,7 +27,7 @@ btn.addEventListener("click", () => {
     #${color.value}4d 10px 10px, #${color.value}33 15px 15px,
     #${color.value}1a 20px 20px, #${color.value}0d 25px 25px`;
     btn.style.backgroundColor = `#${bgColor.value.toLowerCase()}`;
-    btn.style.colorolor = `#${color.value.toLowerCase()}`;
+    btn.style.color = `#${color.value.toLowerCase()}`;
     color.value = ""
     bgColor.value = ""
   }
