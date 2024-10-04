@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: invert;
+            background-image: linear-gradient(0deg,#b5fffdcc,#FFDEE9cc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    #img{
+        height: 250px;
+        width: 250px;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 25ms;
+    }
+    #container{
+      background-color: hwb(340 87% 0%);
+      background-image:linear-gradient(0deg,#FFDEE9,#B5FFFC);
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 25ms;
+    }
+    #container:hover{
+        box-shadow: rgba(244, 164, 191, 0.4) 5px 5px, rgba(244, 164, 191, 0.3) 10px 10px, rgba(244, 164, 191, 0.2) 15px 15px, rgba(244, 164, 191, 0.1) 20px 20px, rgba(244, 164, 191, 0.05) 25px 25px;
+        transform: scale(1.05);
+    }
+    #img-container{
+        height: 250px;
+        width: 250px;
+        padding: 10px;
+    }
+    img:hover{
+        transform: scale(1.05);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px,  rgba(0, 0, 0, 0.45) 0px -25px 20px -20px;
+    }
+    h1{
+        margin: 0;
+        padding-bottom: 5px;
+    }
+    h1::selection{
+        background-color: transparent;
+    }
+    input{
+        width: 240px;
+        height: 25px;
+        margin-top: 10px;
+        outline: none;
+        padding: 5px;
+        border: 1px solid black;
+        font-size: 16px;
+    }
+    button{
+        margin-top: 10px;
+        padding: 10px 5px;
+        width: 250px;
+        font-size: 15px;
+        background-color: rgb(244, 164, 191);
+        border: 1px solid black;
+        border-radius: 20px;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 25ms;
+    }
+    button:hover{
+        background-color: #f9c1d3;
+    }
+    button::selection{
+        background-color: transparent;
+    }
+
+    @media only screen and (max-width: 600px){
+        #img{
+        height: 200px;
+        width: 200px;
+    }
+    #container{
+      background-color: hwb(340 87% 0%);
+      background-image:linear-gradient(0deg,#FFDEE9,#B5FFFC);
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+    }
+    #img-container{
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+    }
+    input{
+        width: 190px;
+        height: 25px;
+        margin-top: 10px;
+        outline: none;
+        padding: 5px;
+        border: 1px solid black;
+        font-size: 16px;
+    }
+    button{
+        margin-top: 10px;
+        padding: 10px 5px;
+        width: 200px;
+        font-size: 15px;
+        background-color: rgb(244, 164, 191);
+        border: 1px solid black;
+        border-radius: 20px;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 25ms;
+    }
+    button:hover{
+        background-color: rgb(244, 164, 191);
+    }
+    img:hover{
+        transform: none;
+        box-shadow: none; 
+    }
+    #container:hover{
+        box-shadow: none;
+        transform: none;
+    }
+    }
+    @media only screen and (max-width: 360px){
+        #img{
+        height: 150px;
+        width: 150px;
+    }
+    #container{
+      background-color: hwb(340 87% 0%);
+      background-image:linear-gradient(0deg,#FFDEE9,#B5FFFC);
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+    }
+    #img-container{
+        height: 150px;
+        width: 150px;
+        padding: 10px;
+    }
+    input{
+        width: 140px;
+        height: 25px;
+        margin-top: 10px;
+        outline: none;
+        padding: 5px;
+        border: 1px solid black;
+        font-size: 16px;
+    }
+    button{
+        margin-top: 10px;
+        padding: 10px 5px;
+        width: 150px;
+        font-size: 15px;
+        background-color: rgb(244, 164, 191);
+        border: 1px solid black;
+        border-radius: 20px;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 25ms;
+    }
+    button:hover{
+        background-color: rgb(244, 164, 191);
+    }
+    img:hover{
+        transform: none;
+        box-shadow: none; 
+    }
+    #container:hover{
+        box-shadow: none;
+        transform: none;
+    }
+    }
+    </style>
+</head>
+<body>
+    <div id="container" draggable="false">
+        <h1 draggable="false">QR CODE</h1>
+        <div id="img-container"><img draggable="false" src=" http://api.qrserver.com/v1/create-qr-code/?data=HelloWorld!&margin=5&size=100x100&color=ff0051&bgcolor=000000" alt="" id="img"></div>
+        <input id="inputVal" draggable="false" type="text" placeholder="Enter link"/>
+        <input id="color" draggable="false" type="text" placeholder="Enter pixel color"/>
+        <input id="bgColor" draggable="false" type="text" placeholder="Enter background color"/>
+        <button id="btn" draggable="false">Generate</button>
+    </div>
+    <script>
+        let qr_image = document.getElementById("img")
+        let inpValue = document.getElementById("inputVal")
+        let color = document.getElementById("color")
+        let bgColor = document.getElementById("bgColor")
+        let btn = document.getElementById("btn")
+
+        let regex = /([a-f0-9]{6}|[a-f0-9]{3})/
+        btn.addEventListener("click",()=>{
+            if (inpValue.value == "") {
+            alert("Please enter the link.")
+        }else if(color.value == ""){
+            alert("Please enter the color.")
+        }else if(!color.value.match(regex)){
+            alert("Enter color in HEX")
+        }else if(!bgColor.value.match(regex)){
+            alert("Enter background color in HEX")
+        } else if(bgColor.value == ""){
+            alert("Please enter the background color.")
+        }else {
+            let value = inpValue.value
+            let url = `https://api.qrserver.com/v1/create-qr-code/?data=${value}&margin=5&size=150x150&color=${color.value}&bgcolor=${bgColor.value}`
+            qr_image.setAttribute("src",url)
+            inpValue.value = ""
+            color.value = ""
+            bgColor.value = ""
+        }
+        })
+    </script>
+</body>
+</html>
